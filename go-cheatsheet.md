@@ -1,5 +1,9 @@
 # Go CheatSheet
 - [Variables](#variables)
+- [Functions](#functions)
+- [Arrays & Slices](#arrays-slices)
+	- [Arrays](#arrays)
+	- [Slices](#slices)
 - [For Loops](#for-loops)
 
 ## <a name="variables"/>Variables
@@ -32,7 +36,7 @@ func main() {
 	// secondCard := "Three of Spades"
 }
 ```
-## Functions
+## <a name="functions"/>Functions
 ```go
 func main() {
 	oneCard := oneNewCard()
@@ -49,10 +53,10 @@ func oneNewCard() string {
 }
 ```
 
-## Arrays and Slices
+## <a name="arrays-slices"/>Arrays and Slices
 Arrays, and slices can only contain one type of data. We cannot mix strings and integers for instance.
 
-### Arrays
+### <a name="arrays"/>Arrays
 An array is made of a fixed length list of data.
 ```go
 func main() {
@@ -80,7 +84,7 @@ func oneNewCard() string {
 }
 ```
 
-### Slices
+### <a name="slices"/>Slices
 A slice is an array that can grow or shrink. [More Doc](https://blog.golang.org/go-slices-usage-and-internals)
 
 ```go
