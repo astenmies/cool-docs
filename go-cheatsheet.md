@@ -1,4 +1,4 @@
-# Go CheatSheet
+# <a name="top"/>Go CheatSheet
 - [Variables](#variables)
 - [Functions](#functions)
 - [Arrays & Slices](#arrays-slices)
@@ -36,6 +36,8 @@ func main() {
 	// secondCard := "Three of Spades"
 }
 ```
+<div style="text-align: right">▲ [Back to Top](#top)</div>
+---
 ## <a name="functions"/>Functions
 ```go
 func main() {
