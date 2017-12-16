@@ -5,7 +5,8 @@
 	- [Arrays](#arrays) - Fixed list of n values.
 	- [Slices](#slices) - Arrays that can grow or shrink.
 - [For Loops](#for-loops) - Iterate over a range.
-- [Custom Types & Methods](#custom-types-methods) - Extend functionnality for a certain type.
+- [Custom Types](#custom-types) - Create a copy ("instance") of a certain type.
+- [Methods](#methods) - Extend functionnality for a custom type.
 
 ## <a name="variables"/>Variables
 
@@ -141,9 +142,23 @@ func main() {
 ```
 <div align="right">▲<a href="#top">Back to Top</a></div>
 
-## <a name="custom-types-methods"/>Custom Types & Methods
+## <a name="custom-types"/>Custom Types
 
-A custom type is an "extention" of an existing type.
+A custom type is a copy ("instance") of an existing type.
+
+```go
+// We specify that any variable of type deck is an "extension" of type slice of string.
+type deck []string
+
+func main() {
+	sliceCards := deck{"Seven of Clubs", "Eight of Clubs"}
+	fmt.Println("sliceCards:", sliceCards)
+}
+```
+<div align="right">▲<a href="#top">Back to Top</a></div>
+
+## <a name="methods"/>Methods
+
 A method is a function with a special receiver argument.
 
 ```go
