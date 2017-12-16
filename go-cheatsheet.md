@@ -2,7 +2,10 @@
 This cheatsheet illustrates the case of an airline company to explain various concepts that we may encounter while programming.
 
 ## First coding mission
-At Go Airlines we offer three classes of flight; First, Business and Economy. Since last year, we cover five destinations;  Florence, Lisbon, Oslo, Perth and Tokyo. On our web app, we can only display five flights at the time in the featured section. The goal of this first mission is to show five random flights to the end user.
+- At Go Airlines we offer three classes of flight; First, Business and Economy. 
+- Since last year, we cover five destinations;  Florence, Lisbon, Oslo, Perth and Tokyo. 
+- On our web app, we want to display four flights at the time in the featured section, of which one will be highlighted.
+- The featured flights need to be randomly picked.
 
 ## Similar cases
 Flights | Classes | Destinations
