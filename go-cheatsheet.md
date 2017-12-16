@@ -6,7 +6,7 @@
 	- [Slices](#slices) - Arrays that can grow or shrink.
 - [For Loops](#for-loops) - Iterate over a range.
 - [Custom Types](#custom-types) - Create a copy ("instance") of a certain type.
-- [Methods/Receiver Functions](#methods) - Extend functionnality for a custom type.
+- [Methods / Receiver Functions](#methods) - Extend functionnality for a custom type.
 
 ## <a name="variables"/>Variables
 
@@ -157,7 +157,7 @@ func main() {
 ```
 <div align="right">▲<a href="#top">Back to Top</a></div>
 
-## <a name="methods"/>Methods/Receiver Functions
+## <a name="methods"/>Methods / Receiver Functions
 
 A method is a function with a special receiver argument. By convention, we name the receiver the first letter of its type (here d for deck). We can think of a receiver as "this", or "self" in OO, but in Go we never use those words!
 
