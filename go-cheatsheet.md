@@ -314,9 +314,7 @@ func main() {
 
 	flights.saveToFile("all_flights")
 }
-```
 
-```go
 // f - is the string slice of type ftFlights that we convert to a single string, which is converted to a byte slice.
 // error - ioutil.WriteFile returns an error, so we just return ioutil.WriteFile as that's also what we want to return.
 func (f ftFlights) saveToFile(fileName string) error {
