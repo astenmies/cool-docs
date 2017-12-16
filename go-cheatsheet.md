@@ -84,6 +84,11 @@ Arrays, and slices can only contain one type of data. We cannot mix strings and 
 
 ### <a name="arrays"/>Arrays
 An array is made of a fixed length list of data.
+
+`arrayName[startIndexIncluding:upToNotIncluding]`
+`flights[0:2]` or `flights[:2]` will return flight 0, flight 1
+`flights[2:]`will return from flight 2 included, to the end of the array
+
 ```go
 func main() {
 	// Create a new variable which is an
