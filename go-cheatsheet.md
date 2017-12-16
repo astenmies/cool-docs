@@ -159,7 +159,7 @@ func main() {
 
 ## <a name="methods"/>Methods
 
-A method is a function with a special receiver argument.
+A method is a function with a special receiver argument. By convention, we name the receiver the first letter of its type (here d for deck). We can think of a receiver as "this", or "self" in OO, but in Go we never use those words!
 
 ```go
 // In Object Oriented programming, we use classes to extend
