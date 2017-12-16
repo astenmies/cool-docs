@@ -38,6 +38,7 @@ func main() {
 ```
 <div style="text-align: right">▲ [Back to Top](#top)</div>
 ---
+
 ## <a name="functions"/>Functions
 ```go
 func main() {
