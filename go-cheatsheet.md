@@ -154,7 +154,7 @@ A method is a function with a special receiver argument.
 // In Go, we achieve this by "extending" a base type (like string or integer ...).
 type deck []string
 
-// By making an extra type, it gives us the ability to create a method, which is a function with a receiver.
+// By making an extra type, it gives us the ability to create a method (a function with a receiver).
 // That function will only work with that specific type.
 // So that method belongs to the extended type ("instance" in OO)
 func (d deck) printIt() {
