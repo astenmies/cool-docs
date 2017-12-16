@@ -157,6 +157,7 @@ type deck []string
 // By making an extra type, it gives us the ability to create a method (a function with a receiver).
 // That function will only work with that specific type.
 // So that method belongs to the extended type ("instance" in OO)
+// Variable d is the actual copy ("instance" in OO) of the deck we're working on.
 // Now any variable of type deck can call this function printIt() on itself.
 func (d deck) printIt() {
 	for i, card := range d {
