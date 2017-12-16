@@ -4,8 +4,9 @@ This cheatsheet illustrates the case of an airline company to explain various co
 ## First coding mission
 - At Go Airlines we offer three classes of flight; First, Business and Economy. 
 - Since last year, we cover five destinations;  Florence, Lisbon, Oslo, Perth and Tokyo. 
-- On our web app, we want to display four featured flights at the time in a specific section, one of them will be highlighted.
+- On our web app, we want to display five featured flights at the time in a specific section.
 - The featured flights need to be randomly picked.
+- A featured flight cannot be displayed twice before each possibility has been displayed (so we will need to keep track of remaining flights when picking featured flights).
 
 ## Similar cases
 Flights | Classes | Destinations
@@ -201,11 +202,11 @@ func main() {
 A custom type is a copy ("instance") of an existing type.
 
 ```go
-// We specify that any variable of type featuredFlight is an "extension" of type slice of string.
-type featuredFlight []string
+// We specify that any variable of type featuredFlights is an "extension" of type slice of string.
+type featuredFlights []string
 
 func main() {
-	sliceFlights := featuredFlight{"First Class to Tokyo", "Business Class to Oslo"}
+	sliceFlights := featuredFlights{"First Class to Tokyo", "Business Class to Oslo"}
 	fmt.Println("sliceFlights:", sliceFlights)
 }
 ```
@@ -215,7 +216,7 @@ func main() {
 
 ## <a name="methods"/>Methods / Receiver Functions
 
-A method is a function with a special receiver argument. By convention, we name the receiver the first letter of its type (here d for featuredFlight). We can think of a receiver as "this", or "self" in OO, but in Go we never use those words!
+A method is a function with a special receiver argument. By convention, we name the receiver the first letter of its type (here d for featuredFlights). We can think of a receiver as "this", or "self" in OO, but in Go we never use those words!
 
 ```go
 // In Object Oriented programming, we use classes to extend
@@ -246,3 +247,53 @@ func main() {
 }
 ```
 <div align="right">▲<a href="#top">Back to Top</a></div>
+
+## <a name="function-returning-multiple-values"/>Function returning multiple values
+The goal here is to split our slice of flights in two. On one side, the determined number of flights we need to pick (four in this case), on the other side we return the remaining flights to keep track of what we have already displayed.
+
+```go
+func main() {
+	// First get all possible flights
+	flights := newFtFlights()
+
+	// Then pick four of them
+	pickedFlights, remainingFlights := pickFlights(flights, 4)
+
+	pickedFlights.printIt("picked")
+	remainingFlights.printIt("remaining")
+}
+
+// Create a slice of all possible flights.
+func newFtFlights() ftFlights {
+	flights := []string{}
+
+	flightClasses := []string{"First Class", "Business Class", "Economy Class"}
+	flightDestinations := []string{"Florence", "Lisbon", "Oslo", "Perth", "Tokyo"}
+
+	// Combine all possibilities of both slices.
+	for _, class := range flightClasses {
+		for _, destination := range flightDestinations {
+			flights = append(flights, class+" to "+destination)
+		}
+	}
+	return flights
+}
+
+// We are going to split our ftFlights.
+// So our function receives one ftFlights type variable
+// and returns two different ftFlights type variables.
+// ftNumber is the number of featured flights.
+func pickFlights(f ftFlights, ftNumber int) (ftFlights, ftFlights) {
+
+	// We can return multiple values simply with a comma.
+	// Here we return the ftNumber of flights, and the remaining flights.
+	return f[:ftNumber], f[ftNumber:]
+}
+
+// Let's print it out.
+func (f ftFlights) printIt(log string) {
+	for i, flight := range f {
+		fmt.Println(log, i, flight)
+	}
+}
+```
