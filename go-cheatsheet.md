@@ -341,9 +341,9 @@ func (f ftFlights) toString() string {
 	return strings.Join([]string(f), ",")
 }
 
-///////////////////////
+////////////////////////
 // PREVIOUS SECTIONS //
-///////////////////////
+//////////////////////
 
 // Create a slice of all possible flights.
 func newFtFlights() ftFlights {
