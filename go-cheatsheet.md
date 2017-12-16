@@ -101,7 +101,7 @@ func main() {
 
 	// If we assign more than the fixed number of values
 	// to the array, it will throw an error:
-	// array index n out of bounds [0:n]
+	// array index n out of bounds [startIndexIncluding:upToNotIncluding] or [0:n]
 	// arrayFlightsImplicit := [2]string{"First Class to Lisbon", "Economy Class to Tokyo", "Exceeding Flight"}
 }
 
