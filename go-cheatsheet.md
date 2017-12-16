@@ -152,7 +152,7 @@ type deck []string
 
 // By making an extra type, it gives us the ability to create a function with a receiver.
 // That function will only work with that specific type.
-// So that function belongs to the extended type (equivalent of "instance")
+// So that function ("method" in OO) belongs to the extended type ("instance" in OO)
 func (d deck) printIt() {
 	for i, card := range d {
 		fmt.Println("sliceCard:", i, card)
