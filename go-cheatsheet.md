@@ -4,7 +4,9 @@
 - [Arrays & Slices](#arrays-slices)
 	- [Arrays](#arrays) - Fixed list of n values.
 	- [Slices](#slices) - Arrays that can grow or shrink.
-- [For Loops](#for-loops) - Iterate over a range.
+- [For Loops](#for-loops)
+	- [Simple Iteration](#simple-iteration) - Iterate over a range.
+	- [Combinations](#combinations) - List all possible combinations between two slices.
 - [Custom Types](#custom-types) - Create a copy ("instance") of a certain type.
 - [Methods / Receiver Functions](#methods) - Extend functionnality for a custom type.
 
@@ -121,6 +123,7 @@ func oneNewCard() string {
 <div align="right">▲<a href="#top">Back to Top</a></div>
 
 ## <a name="for-loops"/>For Loops
+### <a name="simple-iteration"/>Simple Iteration
 ```go
 func main() {
 	sliceCards := []string{"Seven of Clubs", "Eight of Clubs"}
@@ -138,6 +141,26 @@ func main() {
 	for _, card := range sliceCards {
 		fmt.Println("sliceCard:", card)
 	}
+}
+```
+<div align="right">▲<a href="#top">Back to Top</a></div>
+
+### <a name="combinations"/>Combinations
+A basic loop inside a loop, notice how similar to vanilla this looks. All the basic programming stuff that you already know, applies to Go in a similar fashion.
+```go
+func main() {
+	cards := []string{}
+
+	cardSuits := []string{"Spades", "Diamonds", "Hearts", "Clubs"}
+	cardValues := []string{"Ace", "Two", "Three", "Four"}
+
+	for _, suit := range cardSuits {
+		for _, value := range cardValues {
+			cards = append(cards, suit+" of "+value)
+		}
+	}
+
+	fmt.Println("cards:", cards)
 }
 ```
 <div align="right">▲<a href="#top">Back to Top</a></div>
