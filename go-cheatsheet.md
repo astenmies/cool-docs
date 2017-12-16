@@ -28,6 +28,7 @@ Whatever | Whatever | Whatever
 	- [Combinations](#combinations) - List all possible combinations between two slices.
 - [Custom Types](#custom-types) - Create a copy ("instance") of a certain type.
 - [Methods / Receiver Functions](#methods) - Extend functionnality for a custom type.
+- [Function Returning Multiple Values](#function-returning-multiple-values) - Pick n in a slice, return (1) the pick and (2) the remaining values.
 
 ## <a name="variables"/>Variables
 
