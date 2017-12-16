@@ -1,4 +1,4 @@
-# Various Docs
+# Cool Docs
 
 ### [Go CheatSheet](https://github.com/astenmies/various-docs/blob/master/go-cheatsheet.md)
 A complete cheatsheet of Go.
