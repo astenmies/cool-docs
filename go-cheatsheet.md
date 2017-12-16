@@ -1,6 +1,8 @@
 # Go CheatSheet
+- [Variables](#variables)
+- [For Loops](#for-loops)
 
-## Variables
+## <a name="variables"/>Variables
 
 ```go
 package main
@@ -107,7 +109,7 @@ func oneNewCard() string {
 }
 ```
 
-### For loops
+### <a name="for-loops"/>For loops
 ```go
 func main() {
 	sliceCards := []string{"Seven of Clubs", "Eight of Clubs"}
