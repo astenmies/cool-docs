@@ -38,7 +38,7 @@ func main() {
 ```
 <div align="right">▲<a href="#top">Back to Top</a></div>
 
----
+<hr />
 
 ## <a name="functions"/>Functions
 ```go
