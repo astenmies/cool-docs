@@ -39,7 +39,7 @@ func main() {
 
 // When we define a function, we need to be very explicit
 // on what data type will be returned (string here).
-// If we don't, Go expects us to return nothing
+// If we don't, Go expects it to return nothing
 // And will throw error:
 // too many arguments to return have (string) want ().
 func newCard() string {
