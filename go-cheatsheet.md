@@ -1,4 +1,11 @@
-# <a name="top"/>Go CheatSheet
+# <a name="top"/>Go Airlines CheatSheet
+This cheatsheet illustrates the case of an airline company to explain various concepts that we may encounter while programming.
+
+## First brief
+At Go Airlines we offer three classes of flight; First, Business and Economy. Since last year, we cover five destinations;  Florence, Lisbon, Oslo, Perth and Tokyo. On our web app, we can only display five flights at the time in the featured section. The goal of this first mission is to show five random flights to the end user.
+
+## Table of Contents
+
 - [Variables](#variables) - Initiate, define their type and value.
 - [Functions](#functions) - Specify what they return.
 - [Arrays & Slices](#arrays-slices)
@@ -18,26 +25,26 @@ package main
 import "fmt"
 
 func main() {
-	// Create a new variable firstCard
+	// Create a new variable firstFlight
 	// of type string.
-	var firstCard string = "Ace of Clubs"
-	fmt.Println("firstCard:", firstCard)
+	var firstFlight string = "First Class to Perth"
+	fmt.Println("firstFlight:", firstFlight)
 
-	// Same as firstcard, but let Go understand
+	// Same as firstFlight, but let Go understand
 	// that this is of type string.
-	secondCard := "Ace of Spades"
-	fmt.Println("secondCard:", secondCard)
+	secondFlight := "Economy Class to Lisbon"
+	fmt.Println("secondFlight:", secondFlight)
 
 	// Because Go is a static type language
-	// secondCard can never be assigned another
+	// secondFlight can never be assigned another
 	// type than string afterwards.
-	secondCard = "Two of Spades"
-	fmt.Println("secondCard:", secondCard)
+	secondFlight = "First Class to Tokyo"
+	fmt.Println("secondFlight:", secondFlight)
 
 	// This would throw an error, because it's
 	// not a new variable, it's just being assigned
 	// a new value.
-	// secondCard := "Three of Spades"
+	// secondFlight := "Business Class to Oslo"
 }
 ```
 <div align="right">▲<a href="#top">Back to Top</a></div>
@@ -47,8 +54,8 @@ func main() {
 ## <a name="functions"/>Functions
 ```go
 func main() {
-	oneCard := oneNewCard()
-	fmt.Println(oneCard)
+	oneFlight := oneNewFlight()
+	fmt.Println(oneFlight)
 }
 
 // When define a function, we need to be very explicit
@@ -56,8 +63,8 @@ func main() {
 // If we don't, Go expects us to return nothing
 // And will throw error:
 // too many arguments to return have (string) want ().
-func oneNewCard() string {
-	return "Four of Spades"
+func oneNewFlight() string {
+	return "Business Class to Tokyo"
 }
 ```
 <div align="right">▲<a href="#top">Back to Top</a></div>
@@ -73,25 +80,25 @@ An array is made of a fixed length list of data.
 func main() {
 	// Create a new variable which is an
 	// array of n values of type string.
-	var arrayCardsExplicit [3]string
-	arrayCardsExplicit[0] = "Ace of Clubs"
-	arrayCardsExplicit[1] = "Two of Clubs"
-	arrayCardsExplicit[2] = "Three of Clubs"
-	fmt.Println("arrayCardsExplicit:", arrayCardsExplicit)
+	var arrayFlightsExplicit [3]string
+	arrayFlightsExplicit[0] = "First Class to Lisbon"
+	arrayFlightsExplicit[1] = "Economy Class to Tokyo"
+	arrayFlightsExplicit[2] = "Economy Class to Florence"
+	fmt.Println("arrayFlightsExplicit:", arrayFlightsExplicit)
 
 	// A more implicit way of defining an array of types string.
 	// It can also contain a function if it returns a value of same type.
-	arrayCardsImplicit := [3]string{"Four of Clubs", "Five of Clubs", oneNewCard()}
-	fmt.Println("arrayCardsImplicit:", arrayCardsImplicit)
+	arrayFlightsImplicit := [3]string{"First Class to Lisbon", "Economy Class to Tokyo", oneNewFlight()}
+	fmt.Println("arrayFlightsImplicit:", arrayFlightsImplicit)
 
 	// If we assign more than the fixed number of values
 	// to the array, it will throw an error:
 	// array index n out of bounds [0:n]
-	// arrayCardsImplicit := [2]string{"Four of Clubs", "Five of Clubs", "Exceeding Card"}
+	// arrayFlightsImplicit := [2]string{"First Class to Lisbon", "Economy Class to Tokyo", "Exceeding Flight"}
 }
 
-func oneNewCard() string {
-	return "Four of Spades"
+func oneNewFlight() string {
+	return "Economy Class to Florence"
 }
 ```
 <div align="right">▲<a href="#top">Back to Top</a></div>
@@ -103,25 +110,25 @@ A slice is an array that can grow or shrink. [More Doc](https://blog.golang.org/
 func main() {
 	// Create a new variable which is an
 	// array of type string.
-	arrayCardsImplicit := [3]string{"Four of Clubs", "Five of Clubs", "Six of Clubs"}
+	arrayFlights := [3]string{"First Class to Florence", "First Class to Lisbon", "Economy Class to Perth"}
 
 	// A slice is an array that can grow or shrink
-	sliceCardsFromArray := arrayCardsImplicit[0:2]
-	fmt.Println("sliceCardsFromArray:", sliceCardsFromArray)
+	sliceFlightsFromArray := arrayFlights[0:2]
+	fmt.Println("sliceFlightsFromArray:", sliceFlightsFromArray)
 
 	// A more implicit way of defining each value of the
 	// slice of type string. It can also contain a function
 	// if that function returns a value of the same type.
-	sliceCardsImplicit := []string{"Seven of Clubs", "Eight of Clubs", oneNewCard()}
-	fmt.Println("sliceCardsImplicit:", sliceCardsImplicit)
+	sliceFlights := []string{"First Class to Florence", "First Class to Lisbon", oneNewFlight()}
+	fmt.Println("sliceFlights:", sliceFlights)
 
 	// We can append data of type string to a slice.
-	sliceCardsImplicit = append(sliceCardsImplicit, "Five of Spades")
-	fmt.Println("sliceCardsImplicit:", sliceCardsImplicit)
+	sliceFlights = append(sliceFlights, "Business Class to Oslo")
+	fmt.Println("sliceFlights:", sliceFlights)
 }
 
-func oneNewCard() string {
-	return "Four of Spades"
+func oneNewFlight() string {
+	return "Economy Class to Perth"
 }
 ```
 <div align="right">▲<a href="#top">Back to Top</a></div>
@@ -132,20 +139,20 @@ func oneNewCard() string {
 ### <a name="simple-iteration"/>Simple Iteration
 ```go
 func main() {
-	sliceCards := []string{"Seven of Clubs", "Eight of Clubs"}
+	sliceFlights := []string{"Economy Class to Perth", "Economy Class to Tokyo"}
 
 	// A simple for loop.
-	// Range instructs to take slice Cards and loop over it.
+	// Range instructs to take slice Flights and loop over it.
 	// We use := because in for loops, every single time that
-	// we step through this list of cards we really throw away
-	// the two variables (i and card). So we re-declare them each time.
-	for i, card := range sliceCards {
-		fmt.Println("sliceCard:", i, card)
+	// we step through this list of flights we really throw away
+	// the two variables (i and flight). So we re-declare them each time.
+	for i, flight := range sliceFlights {
+		fmt.Println("sliceFlight:", i, flight)
 	}
 
 	// If we don't care about the index, we use underscore
-	for _, card := range sliceCards {
-		fmt.Println("sliceCard:", card)
+	for _, flight := range sliceFlights {
+		fmt.Println("sliceFlight:", flight)
 	}
 }
 ```
@@ -155,18 +162,18 @@ func main() {
 A basic loop inside a loop, notice how similar to vanilla this looks. All the basic programming stuff that you already know, applies to Go in a similar fashion.
 ```go
 func main() {
-	cards := []string{}
+	flights := []string{}
 
-	cardSuits := []string{"Spades", "Diamonds", "Hearts", "Clubs"}
-	cardValues := []string{"Ace", "Two", "Three", "Four"}
+	flightClasses := []string{"First Class", "Business Class", "Economy Class"}
+	flightDestinations := []string{"Florence", "Lisbon", "Oslo", "Perth", "Tokyo"}
 
-	for _, suit := range cardSuits {
-		for _, value := range cardValues {
-			cards = append(cards, value+" of "+suit)
-			fmt.Println("card:", value+" of "+suit)
+	for _, class := range flightClasses {
+		for _, destination := range flightDestinations {
+			flights = append(flights, class+" to "+destination)
+			fmt.Println("flight:", class+" to "+destination)
 		}
 	}
-	fmt.Println("cards:", cards)
+	fmt.Println("flights:", flights)
 }
 ```
 <div align="right">▲<a href="#top">Back to Top</a></div>
@@ -178,12 +185,12 @@ func main() {
 A custom type is a copy ("instance") of an existing type.
 
 ```go
-// We specify that any variable of type deck is an "extension" of type slice of string.
-type deck []string
+// We specify that any variable of type featuredFlight is an "extension" of type slice of string.
+type featuredFlight []string
 
 func main() {
-	sliceCards := deck{"Seven of Clubs", "Eight of Clubs"}
-	fmt.Println("sliceCards:", sliceCards)
+	sliceFlights := featuredFlight{"First Class to Tokyo", "Business Class to Oslo"}
+	fmt.Println("sliceFlights:", sliceFlights)
 }
 ```
 <div align="right">▲<a href="#top">Back to Top</a></div>
@@ -192,7 +199,7 @@ func main() {
 
 ## <a name="methods"/>Methods / Receiver Functions
 
-A method is a function with a special receiver argument. By convention, we name the receiver the first letter of its type (here d for deck). We can think of a receiver as "this", or "self" in OO, but in Go we never use those words!
+A method is a function with a special receiver argument. By convention, we name the receiver the first letter of its type (here d for featuredFlight). We can think of a receiver as "this", or "self" in OO, but in Go we never use those words!
 
 ```go
 // In Object Oriented programming, we use classes to extend
@@ -200,26 +207,26 @@ A method is a function with a special receiver argument. By convention, we name 
 // So in OO we use methods to create functions that belong to the instance.
 
 // In Go, we achieve this by "extending" a base type (like string or integer ...).
-type deck []string
+type featuredFlights []string
 
 // By making an extra type, it gives us the ability to create a method (a function with a receiver).
 // That function will only work with that specific type.
 // So that method belongs to the extended type ("instance" in OO)
-// Variable d is the actual copy ("instance" in OO) of the deck we're working on.
-// Now any variable of type deck can call this function printIt() on itself.
-func (d deck) printIt() {
-	for i, card := range d {
-		fmt.Println("sliceCard:", i, card)
+// Variable d is the actual copy ("instance" in OO) of the featuredFlights we're working on.
+// Now any variable of type featuredFlights can call this function printIt() on itself.
+func (f featuredFlights) printIt() {
+	for i, flight := range f {
+		fmt.Println("sliceFlight:", i, flight)
 	}
 }
 
 func main() {
-	// sliceCards := []string{"Seven of Clubs", "Eight of Clubs"}
-	sliceCards := deck{"Seven of Clubs", "Eight of Clubs"}
+	// sliceFlights := []string{"Economy Class to Lisbon", "Business Class to Perth"}
+	sliceFlights := featuredFlights{"Economy Class to Lisbon", "Business Class to Perth"}
 
-	// Because we extended type deck with a printIt() functionnality,
-	// we can now use it on sliceCards variable.
-	sliceCards.printIt()
+	// Because we extended type featuredFlights with a printIt() functionnality,
+	// we can now use it on sliceFlights variable.
+	sliceFlights.printIt()
 }
 ```
 <div align="right">▲<a href="#top">Back to Top</a></div>
