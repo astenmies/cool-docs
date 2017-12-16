@@ -8,7 +8,9 @@ At Go Airlines we offer three classes of flight; First, Business and Economy. Si
 Flights | Classes | Destinations
 --- | --- | ---
 Jackets | Classes | Colors
-Accomodation | Type | Location
+Accomodations | Types | Locations
+Cars | Brands | Colors
+Whatever | Whatever | Whatever
 
 ## Table of Contents
 
