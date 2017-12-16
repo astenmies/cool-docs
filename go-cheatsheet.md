@@ -1,11 +1,11 @@
 # <a name="top"/>Go CheatSheet
-- [Variables](#variables)
-- [Functions](#functions)
+- [Variables](#variables) - Initiate, define their type and value.
+- [Functions](#functions) - Specify what they return.
 - [Arrays & Slices](#arrays-slices)
-	- [Arrays](#arrays)
-	- [Slices](#slices)
-- [For Loops](#for-loops)
-- [Custom Types](#custom-types)
+	- [Arrays](#arrays) - Fixed list of n values.
+	- [Slices](#slices) - Arrays that can grow or shrink.
+- [For Loops](#for-loops) - Iterate over a range.
+- [Custom Types & Methods](#custom-types-methods) - Extend functionnality for a certain type.
 
 ## <a name="variables"/>Variables
 
@@ -141,7 +141,9 @@ func main() {
 ```
 <div align="right">▲<a href="#top">Back to Top</a></div>
 
-## <a name="custom-types"/>Custom Types
+## <a name="custom-types-methods"/>Custom Types & Methods
+A method is a function with a special receiver argument.
+
 ```go
 // In Object Oriented programming, we use classes to extend
 // functionnality, and then initiate new instances of those classes.
@@ -150,9 +152,9 @@ func main() {
 // In Go, we achieve this by "extending" a base type (like string or integer ...).
 type deck []string
 
-// By making an extra type, it gives us the ability to create a function with a receiver.
+// By making an extra type, it gives us the ability to create a function with a receiver, or method.
 // That function will only work with that specific type.
-// So that function ("method" in OO) belongs to the extended type ("instance" in OO)
+// So that method belongs to the extended type ("instance" in OO)
 func (d deck) printIt() {
 	for i, card := range d {
 		fmt.Println("sliceCard:", i, card)
