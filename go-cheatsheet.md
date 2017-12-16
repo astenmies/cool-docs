@@ -106,3 +106,24 @@ func oneNewCard() string {
 	return "Four of Spades"
 }
 ```
+
+### For loops
+```go
+func main() {
+	sliceCards := []string{"Seven of Clubs", "Eight of Clubs"}
+
+	// A simple for loop.
+	// Range instructs to take slice Cards and loop over it.
+	// We use := because in for loops, every single time that
+	// we step through this list of cards we really throw away
+	// the two variables (i and card). So we re-declare it each time.
+	for i, card := range sliceCards {
+		fmt.Println("sliceCard:", i, card)
+	}
+
+	// If we don't care about the index, we use underscore
+	for _, card := range sliceCards {
+		fmt.Println("sliceCard:", card)
+	}
+}
+```
