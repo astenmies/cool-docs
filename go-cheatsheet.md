@@ -42,6 +42,8 @@ func main() {
 ```
 <div align="right">▲<a href="#top">Back to Top</a></div>
 
+---
+
 ## <a name="functions"/>Functions
 ```go
 func main() {
@@ -59,6 +61,8 @@ func oneNewCard() string {
 }
 ```
 <div align="right">▲<a href="#top">Back to Top</a></div>
+
+---
 
 ## <a name="arrays-slices"/>Arrays and Slices
 Arrays, and slices can only contain one type of data. We cannot mix strings and integers for instance.
@@ -122,6 +126,8 @@ func oneNewCard() string {
 ```
 <div align="right">▲<a href="#top">Back to Top</a></div>
 
+---
+
 ## <a name="for-loops"/>For Loops
 ### <a name="simple-iteration"/>Simple Iteration
 ```go
@@ -165,6 +171,8 @@ func main() {
 ```
 <div align="right">▲<a href="#top">Back to Top</a></div>
 
+---
+
 ## <a name="custom-types"/>Custom Types
 
 A custom type is a copy ("instance") of an existing type.
@@ -179,6 +187,8 @@ func main() {
 }
 ```
 <div align="right">▲<a href="#top">Back to Top</a></div>
+
+---
 
 ## <a name="methods"/>Methods / Receiver Functions
 
