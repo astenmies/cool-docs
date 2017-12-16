@@ -86,6 +86,7 @@ func oneNewCard() string {
 	return "Four of Spades"
 }
 ```
+<div align="right">▲<a href="#top">Back to Top</a></div>
 
 ### <a name="slices"/>Slices
 A slice is an array that can grow or shrink. [More Doc](https://blog.golang.org/go-slices-usage-and-internals)
