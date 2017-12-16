@@ -96,6 +96,10 @@ func main() {
 	// if that function returns a value of the same type.
 	sliceCardsImplicit := []string{"Seven of Clubs", "Eight of Clubs", oneNewCard()}
 	fmt.Println("sliceCardsImplicit:", sliceCardsImplicit)
+
+	// We can append data of type string to a slice.
+	sliceCardsImplicit = append(sliceCardsImplicit, "Five of Spades")
+	fmt.Println("sliceCardsImplicit:", sliceCardsImplicit)
 }
 
 func oneNewCard() string {
