@@ -157,6 +157,7 @@ type deck []string
 // By making an extra type, it gives us the ability to create a method (a function with a receiver).
 // That function will only work with that specific type.
 // So that method belongs to the extended type ("instance" in OO)
+// Now any variable of type deck can call this function printIt() on itself.
 func (d deck) printIt() {
 	for i, card := range d {
 		fmt.Println("sliceCard:", i, card)
@@ -168,7 +169,7 @@ func main() {
 	sliceCards := deck{"Seven of Clubs", "Eight of Clubs"}
 
 	// Because we extended type deck with a printIt() functionnality,
-	// we can now use it for sliceCards variable.
+	// we can now use it on sliceCards variable.
 	sliceCards.printIt()
 }
 ```
