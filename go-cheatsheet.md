@@ -1,3 +1,5 @@
+# (GitHub-Flavored) Markdown Editor
+
 # <a name="top"/>Go Airlines CheatSheet
 This cheatsheet illustrates the case of an airline company to explain various concepts that we may encounter while programming.
 
@@ -39,26 +41,34 @@ package main
 import "fmt"
 
 func main() {
-	// Create a new variable firstFlight
-	// of type string.
+```
+// firstFlight - new variable of type string.
+```go
 	var firstFlight string = "First Class to Perth"
 	fmt.Println("firstFlight:", firstFlight)
-
-	// Same as firstFlight, but let Go understand
-	// that this is of type string.
+```
+// secondFlight - Go can guess that it's a string without us specifying it.
+```go
 	secondFlight := "Economy Class to Lisbon"
 	fmt.Println("secondFlight:", secondFlight)
+```
 
-	// Because Go is a static type language
-	// secondFlight can never be assigned another
-	// type than string afterwards.
+// secondflight - We assign a new value to it.
+
+// Because Go is a static type language, the type of a variable can never change afterwards.
+```go
 	secondFlight = "First Class to Tokyo"
 	fmt.Println("secondFlight:", secondFlight)
-
-	// This would throw an error, because it's
-	// not a new variable, it's just being assigned
-	// a new value.
-	// secondFlight := "Business Class to Oslo"
+```
+// This would throw an error, because it's not a new variable
+```go
+// secondFlight := "Business Class to Oslo"
+```
+// This would throw an error because the variable type changed when re-assigning it.
+```go
+secondFlight = 41
+```
+```go
 }
 ```
 <div align="right">▲<a href="#top">Back to Top</a></div>
@@ -378,3 +388,4 @@ func (f ftFlights) printIt(log string) {
 ```
 
 <div align="right">▲<a href="#top">Back to Top</a></div>
+
