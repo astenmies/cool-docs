@@ -324,26 +324,25 @@ func main() {
 }
 ```
 
-- f is the slice of bytes that we require in ioutil.
-- The only thing this function returns is error, for the rest it's just a file being written so no other return required.
-- We convert the string to a byte slice.
-- ioutil.WriteFile returns an error, so we just return ioutil.WriteFile.
 ```go
 func (f ftFlights) saveToFile(fileName string) error {
 	return ioutil.WriteFile(fileName, []byte(f.toString()), 0666)
 }
 ```
-
-- Let's first convert ftFlights to a string.
-- Example, we will turn ["red", "green", "blue"] slice of string
-- To "red,green,blue" string. Using commas in the string seems appropriate.
-- Go string package can do this! Join concatenates a slice of string to create a single string. We just need to define the separator we want (comma here).
+- f is the slice of bytes that we require in ioutil.
+- The only thing this function returns is error, for the rest it's just a file being written so no other return required.
+- We convert the string to a byte slice.
+- ioutil.WriteFile returns an error, so we just return ioutil.WriteFile.
 ```go
 func (f ftFlights) toString() string {
 	
 	return strings.Join([]string(f), ",")
 }
 ```
+- Let's first convert ftFlights to a string.
+- Example, we will turn ["red", "green", "blue"] slice of string to "red,green,blue" string. 
+- Using commas as separator the string seems appropriate.
+- Go string package can do this! ***Join*** concatenates a slice of string to create a single string. We just need to define the separator we want (comma here).
 ```go
 ////////////////////////
 // PREVIOUS SECTIONS //
