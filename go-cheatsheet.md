@@ -213,19 +213,19 @@ func main() {
 
 A method is a function with a special receiver argument. By convention, we name the receiver the first letter of its type (here d for featuredFlights). We can think of a receiver as "this", or "self" in OO, but in Go we never use those words!
 
-```go
-// In Object Oriented programming, we use classes to extend
-// functionnality, and then initiate new instances of those classes.
-// So in OO we use methods to create functions that belong to the instance.
+- In Object Oriented programming, we use classes to extend functionality.
+- Then initiate new instances of those classes.
+- Finally, we use methods to create functions that belong to the instance.
 
-// In Go, we achieve this by "extending" a base type (like string or integer ...).
+- In Go, we achieve this by "extending" a base type (like string, []string or integer etc.).
+
+```go
+// featuredFlights - is an extension of the type []string
 type featuredFlights []string
 
 // By making an extra type, it gives us the ability to create a method (a function with a receiver).
 // That function will only work with that specific type.
-// So that method belongs to the extended type ("instance" in OO)
-// Variable d is the actual copy ("instance" in OO) of the featuredFlights we're working on.
-// Now any variable of type featuredFlights can call this function printIt() on itself.
+// f - is the actual copy ("instance" in OO) of the featuredFlights we're working on.
 func (f featuredFlights) printIt() {
 	for i, flight := range f {
 		fmt.Println("sliceFlight:", i, flight)
@@ -237,7 +237,7 @@ func main() {
 	sliceFlights := featuredFlights{"Economy Class to Lisbon", "Business Class to Perth"}
 
 	// Because we extended type featuredFlights with a printIt() functionnality,
-	// we can now use it on sliceFlights variable.
+	// any variable of type featuredFlights can call this function printIt() on itself.
 	sliceFlights.printIt()
 }
 ```
@@ -274,14 +274,12 @@ func newFtFlights() ftFlights {
 	return flights
 }
 
-// We are going to split our ftFlights.
-// So our function receives one ftFlights type variable
-// and returns two different ftFlights type variables.
-// ftNumber is the number of featured flights.
+// f - We are going to split this slice of type ftFlights, (1) pickedFlights (2) remainingFlights
+// ftNumber - is the number of featured flights.
 func pickFlights(f ftFlights, ftNumber int) (ftFlights, ftFlights) {
 
 	// We can return multiple values simply with a comma.
-	// Here we return the ftNumber of flights, and the remaining flights.
+	// Here we return (1) pickedFlights (2) remainingFlights.
 	return f[:ftNumber], f[ftNumber:]
 }
 
@@ -296,10 +294,11 @@ func (f ftFlights) printIt(log string) {
 <div align="right">▲<a href="#top">Back to Top</a></div>
 
 ## <a name="byte-slices-write-file"/>Byte Slices / Write File
-See http://asciitable.com to find out decimal values for each letter of a string. This is required because go package ioutil requires a byte slice to **write a file**. The main challenge here is to convert our ***ftFlights*** type (which is the extension of a string slice), to a byte slice.
+- We will convert all flights combinations to a string, in which each value is separated by a comma. 
+- Then we'll convert this string to a slice of bytes in order to inject it in ***ioutil.WriteFile()***.
 
-For doing this we will use what we call a **type conversion**. `[]byte("Hello")` converts hello to a byte slice.
-
+- For doing this we will use what we call a **type conversion**. `[]byte("Hello")` converts hello to a byte slice.
+- See http://asciitable.com to find out decimal values for each letter of a string.
 ```go
 type ftFlights []string
 
@@ -318,25 +317,18 @@ func main() {
 ```
 
 ```go
+// f - is the string slice of type ftFlights that we convert to a single string, which is converted to a byte slice.
+// error - ioutil.WriteFile returns an error, so we just return ioutil.WriteFile as that's also what we want to return.
 func (f ftFlights) saveToFile(fileName string) error {
 	return ioutil.WriteFile(fileName, []byte(f.toString()), 0666)
 }
-```
-- f is the slice of bytes that we require in ioutil.
-- The only thing this function returns is error, for the rest it's just a file being written so no other return required.
-- We convert the string to a byte slice.
-- ioutil.WriteFile returns an error, so we just return ioutil.WriteFile.
-```go
+
+// f - is the string slice that we will convert to a single string with the default Go package strings.Join().
+// Each value is separated by a comma in the single string.
 func (f ftFlights) toString() string {
-	
 	return strings.Join([]string(f), ",")
 }
-```
-- Let's first convert ftFlights to a string.
-- Example, we will turn ["red", "green", "blue"] slice of string to "red,green,blue" string. 
-- Using commas as separator the string seems appropriate.
-- Go string package can do this! ***Join*** concatenates a slice of string to create a single string. We just need to define the separator we want (comma here).
-```go
+
 ////////////////////////
 // PREVIOUS SECTIONS //
 //////////////////////
