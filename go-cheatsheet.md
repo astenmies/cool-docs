@@ -41,34 +41,24 @@ package main
 import "fmt"
 
 func main() {
-```
-// firstFlight - new variable of type string.
-```go
+	// firstFlight - new variable of type string.
 	var firstFlight string = "First Class to Perth"
 	fmt.Println("firstFlight:", firstFlight)
-```
-// secondFlight - Go can guess that it's a string without us specifying it.
-```go
+
+	// secondFlight - Go can guess that it's a string without us specifying it.
 	secondFlight := "Economy Class to Lisbon"
 	fmt.Println("secondFlight:", secondFlight)
-```
-
-// secondflight - We assign a new value to it.
-
-// Because Go is a static type language, the type of a variable can never change afterwards.
-```go
+	
+	// secondflight - We assign a new value to it.
+	// Because Go is a static type language, the type of a variable can never change afterwards.
 	secondFlight = "First Class to Tokyo"
 	fmt.Println("secondFlight:", secondFlight)
-```
-// This would throw an error, because it's not a new variable
-```go
-// secondFlight := "Business Class to Oslo"
-```
-// This would throw an error because the variable type changed when re-assigning it.
-```go
-secondFlight = 41
-```
-```go
+
+	// This would throw an error, because it's not a new variable
+	// secondFlight := "Business Class to Oslo"
+
+	// This would throw an error because the variable type changed when re-assigning it.
+	// secondFlight = 41
 }
 ```
 <div align="right">▲<a href="#top">Back to Top</a></div>
@@ -82,11 +72,8 @@ func main() {
 	fmt.Println(oneFlight)
 }
 
-// When define a function, we need to be very explicit
-// on what data type will be returned (string here).
-// If we don't, Go expects us to return nothing
-// And will throw error:
-// too many arguments to return have (string) want ().
+// string - When defining a new function, specify what it will return.
+// If not, it expects nothing and throws error: too many arguments to return have (string) want ()
 func oneNewFlight() string {
 	return "Business Class to Tokyo"
 }
@@ -107,21 +94,21 @@ An array is made of a fixed length list of data.
 
 ```go
 func main() {
-	// Create a new variable which is an
-	// array of n values of type string.
+
+	// arrayFlightsExplicit - Initiate new variable that is an array of n values of type string.
 	var arrayFlightsExplicit [3]string
+	
 	arrayFlightsExplicit[0] = "First Class to Lisbon"
 	arrayFlightsExplicit[1] = "Economy Class to Tokyo"
 	arrayFlightsExplicit[2] = "Economy Class to Florence"
 	fmt.Println("arrayFlightsExplicit:", arrayFlightsExplicit)
 
-	// A more implicit way of defining an array of types string.
-	// It can also contain a function if it returns a value of same type.
+	// arrayFlightsImplicit - Defining the content of the array directly inline.
+	// An array can also contain a func if that func returns a value of same type.
 	arrayFlightsImplicit := [3]string{"First Class to Lisbon", "Economy Class to Tokyo", oneNewFlight()}
 	fmt.Println("arrayFlightsImplicit:", arrayFlightsImplicit)
 
-	// If we assign more than the fixed number of values
-	// to the array, it will throw an error:
+	// An array has a fixed number of values. If we define more, it will throw an error:
 	// array index n out of bounds [startIndexIncluding:upToNotIncluding] or [0:n]
 	// arrayFlightsImplicit := [2]string{"First Class to Lisbon", "Economy Class to Tokyo", "Exceeding Flight"}
 }
@@ -137,17 +124,13 @@ A slice is an array that can grow or shrink. [More Doc](https://blog.golang.org/
 
 ```go
 func main() {
-	// Create a new variable which is an
-	// array of type string.
 	arrayFlights := [3]string{"First Class to Florence", "First Class to Lisbon", "Economy Class to Perth"}
 
 	// A slice is an array that can grow or shrink
 	sliceFlightsFromArray := arrayFlights[0:2]
 	fmt.Println("sliceFlightsFromArray:", sliceFlightsFromArray)
 
-	// A more implicit way of defining each value of the
-	// slice of type string. It can also contain a function
-	// if that function returns a value of the same type.
+	// sliceFlights - Initiating a slice and defining its values.
 	sliceFlights := []string{"First Class to Florence", "First Class to Lisbon", oneNewFlight()}
 	fmt.Println("sliceFlights:", sliceFlights)
 
