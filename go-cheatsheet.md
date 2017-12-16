@@ -29,6 +29,7 @@ Whatever | Whatever | Whatever
 - [Custom Types](#custom-types) - Create a copy ("instance") of a certain type.
 - [Methods / Receiver Functions](#methods) - Extend functionnality for a custom type.
 - [Function Returning Multiple Values](#function-returning-multiple-values) - Pick n in a slice, return (1) the pick and (2) the remaining values.
+- [Byte Slices / Write File](#byte-slices-write-file) - Write a file with a slice of bytes (ASCII characters).
 
 ## <a name="variables"/>Variables
 
@@ -298,3 +299,79 @@ func (f ftFlights) printIt(log string) {
 	}
 }
 ```
+
+<div align="right">▲<a href="#top">Back to Top</a></div>
+
+## <a name="byte-slices-write-file"/>Byte Slices / Write File
+See http://asciitable.com to find out decimal values for each letter of a string. This is required because go package ioutil requires a byte slice to **write a file**. The main challenge here is to convert our ***ftFlights*** type (which is the extension of a string slice), to a byte slice.
+
+For doing this we will use what we call a **type conversion**. `[]byte("Hello")` converts hello to a byte slice.
+
+```go
+type ftFlights []string
+
+func main() {
+	// First get all possible flights
+	flights := newFtFlights()
+
+	// Then pick four of them
+	pickedFlights, remainingFlights := pickFlights(flights, 4)
+
+	pickedFlights.printIt("picked")
+	remainingFlights.printIt("remaining")
+
+	flights.saveToFile("all_flights")
+}
+
+// f is the slice of bytes that we require in ioutil.
+// The only thing it returns is error, for the rest it's just a file
+// being written.
+func (f ftFlights) saveToFile(fileName string) error {
+	// We convert the string to a byte slice.
+	// ioutil.WriteFile returns an error and that's also what we want to return.
+	return ioutil.WriteFile(fileName, []byte(f.toString()), 0666)
+}
+
+// Let's first convert ftFlights to a string.
+func (f ftFlights) toString() string {
+	// Example, we will turn ["red", "green", "blue"] slice of string
+	// To "red,green,blue" string. Using commas in the string seems appropriate.
+	// Go string package can do this! Join concatenates a slice of string
+	// to create a single string. We just need to define the separator we want (comma here).
+	return strings.Join([]string(f), ",")
+}
+
+///////////////////////
+// PREVIOUS SECTIONS //
+///////////////////////
+
+// Create a slice of all possible flights.
+func newFtFlights() ftFlights {
+	flights := []string{}
+
+	flightClasses := []string{"First Class", "Business Class", "Economy Class"}
+	flightDestinations := []string{"Florence", "Lisbon", "Oslo", "Perth", "Tokyo"}
+
+	// Combine all possibilities of both slices.
+	for _, class := range flightClasses {
+		for _, destination := range flightDestinations {
+			flights = append(flights, class+" to "+destination)
+		}
+	}
+	return flights
+}
+
+// We are going to split our ftFlights to (1) picked, (2) remaining.
+func pickFlights(f ftFlights, ftNumber int) (ftFlights, ftFlights) {
+	return f[:ftNumber], f[ftNumber:]
+}
+
+// Let's print it out.
+func (f ftFlights) printIt(log string) {
+	for i, flight := range f {
+		fmt.Println(log, i, flight)
+	}
+}
+```
+
+<div align="right">▲<a href="#top">Back to Top</a></div>
