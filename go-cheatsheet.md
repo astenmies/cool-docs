@@ -5,6 +5,7 @@
 	- [Arrays](#arrays)
 	- [Slices](#slices)
 - [For Loops](#for-loops)
+- [Custom Types](#custom-types)
 
 ## <a name="variables"/>Variables
 
@@ -118,7 +119,7 @@ func oneNewCard() string {
 ```
 <div align="right">▲<a href="#top">Back to Top</a></div>
 
-### <a name="for-loops"/>For loops
+### <a name="for-loops"/>For Loops
 ```go
 func main() {
 	sliceCards := []string{"Seven of Clubs", "Eight of Clubs"}
@@ -140,3 +141,31 @@ func main() {
 ```
 <div align="right">▲<a href="#top">Back to Top</a></div>
 
+### <a name="custom-types"/>Custom Types
+```go
+// In Object Oriented programming, we use classes to extend
+// functionnality, and then initiate new instances of those classes.
+// So in OO we use methods to create functions that belong to the instance.
+
+// In Go, we achieve this by "extending" a base type (like string or integer ...).
+type deck []string
+
+// By making an extra type, it gives us the ability to create a function with a receiver.
+// That function will only work with that specific type.
+// So that function belongs to the extended type (equivalent of "instance")
+func (d deck) printIt() {
+	for i, card := range d {
+		fmt.Println("sliceCard:", i, card)
+	}
+}
+
+func main() {
+	// sliceCards := []string{"Seven of Clubs", "Eight of Clubs"}
+	sliceCards := deck{"Seven of Clubs", "Eight of Clubs"}
+
+	// Because we extended type deck with a printIt() functionnality,
+	// we can now use it for sliceCards variable.
+	sliceCards.printIt()
+}
+```
+<div align="right">▲<a href="#top">Back to Top</a></div>
