@@ -36,7 +36,7 @@ func main() {
 	// secondCard := "Three of Spades"
 }
 ```
-<div style="text-align: right">▲ [Back to Top](#top)</div>
+<div align="right">▲ [Back to Top](#top)</div>
 ---
 
 ## <a name="functions"/>Functions
