@@ -38,8 +38,6 @@ func main() {
 ```
 <div align="right">▲<a href="#top">Back to Top</a></div>
 
-<hr style="border-color: red" />
-
 ## <a name="functions"/>Functions
 ```go
 func main() {
@@ -56,6 +54,7 @@ func oneNewCard() string {
 	return "Four of Spades"
 }
 ```
+<div align="right">▲<a href="#top">Back to Top</a></div>
 
 ## <a name="arrays-slices"/>Arrays and Slices
 Arrays, and slices can only contain one type of data. We cannot mix strings and integers for instance.
@@ -116,6 +115,7 @@ func oneNewCard() string {
 	return "Four of Spades"
 }
 ```
+<div align="right">▲<a href="#top">Back to Top</a></div>
 
 ### <a name="for-loops"/>For loops
 ```go
@@ -137,3 +137,5 @@ func main() {
 	}
 }
 ```
+<div align="right">▲<a href="#top">Back to Top</a></div>
+
