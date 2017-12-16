@@ -1,7 +1,7 @@
 # <a name="top"/>Go Airlines CheatSheet
 This cheatsheet illustrates the case of an airline company to explain various concepts that we may encounter while programming.
 
-## First brief
+## First coding mission
 At Go Airlines we offer three classes of flight; First, Business and Economy. Since last year, we cover five destinations;  Florence, Lisbon, Oslo, Perth and Tokyo. On our web app, we can only display five flights at the time in the featured section. The goal of this first mission is to show five random flights to the end user.
 
 ## Table of Contents
