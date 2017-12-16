@@ -4,7 +4,7 @@
 - [Arrays & Slices](#arrays-slices)
 	- [Arrays](#arrays) - Fixed list of n values.
 	- [Slices](#slices) - Arrays that can grow or shrink.
-- [For Loops](#for-loops)
+- For Loops
 	- [Simple Iteration](#simple-iteration) - Iterate over a range.
 	- [Combinations](#combinations) - List all possible combinations between two slices.
 - [Custom Types](#custom-types) - Create a copy ("instance") of a certain type.
