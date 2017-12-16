@@ -119,7 +119,7 @@ func oneNewCard() string {
 ```
 <div align="right">▲<a href="#top">Back to Top</a></div>
 
-### <a name="for-loops"/>For Loops
+## <a name="for-loops"/>For Loops
 ```go
 func main() {
 	sliceCards := []string{"Seven of Clubs", "Eight of Clubs"}
@@ -141,7 +141,7 @@ func main() {
 ```
 <div align="right">▲<a href="#top">Back to Top</a></div>
 
-### <a name="custom-types"/>Custom Types
+## <a name="custom-types"/>Custom Types
 ```go
 // In Object Oriented programming, we use classes to extend
 // functionnality, and then initiate new instances of those classes.
