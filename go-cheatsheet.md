@@ -144,7 +144,6 @@ func main() {
 ## <a name="custom-types-methods"/>Custom Types & Methods
 
 A custom type is an "extention" of an existing type.
-
 A method is a function with a special receiver argument.
 
 ```go
