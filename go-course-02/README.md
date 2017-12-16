@@ -25,7 +25,7 @@ func main() {
 	fmt.Println("secondCard:", secondCard)
 
 	// This would throw an error, because it's
-	// not a new variable, it's just an assigned
+	// not a new variable, it's just being assigned
 	// a new value.
 	// secondCard := "Three of Spades"
 }
