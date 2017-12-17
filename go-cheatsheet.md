@@ -1,5 +1,3 @@
-# (GitHub-Flavored) Markdown Editor
-
 # <a name="top"/>Go Airlines CheatSheet
 This cheatsheet illustrates the case of an airline company to explain various concepts that we may encounter while programming.
 
