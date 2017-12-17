@@ -295,7 +295,7 @@ func (f ftFlights) printIt(log string) {
 
 ## <a name="byte-slices-write-file"/>Byte Slices / Write File
 - We will convert all flights combinations to a string, in which each value is separated by a comma. 
-- Then we'll convert this string to a slice of bytes in order to inject it in ***ioutil.WriteFile()***.
+- Then we'll convert this string to a slice of bytes in order to inject it in ***ioutil.WriteFile()*** .
 
 - For doing this we will use what we call a **type conversion**. `[]byte("Hello")` converts hello to a byte slice.
 - See http://asciitable.com to find out decimal values for each letter of a string.
