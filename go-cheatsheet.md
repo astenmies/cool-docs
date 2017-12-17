@@ -11,7 +11,7 @@ This cheatsheet illustrates the case of an airline company to explain various co
 ## Similar cases
 Flights | Classes | Destinations
 --- | --- | ---
-Jackets | Classes | Colors
+Jackets | Colors | Sizes
 Accomodations | Types | Locations
 Cars | Brands | Colors
 Whatever | Whatever | Whatever
